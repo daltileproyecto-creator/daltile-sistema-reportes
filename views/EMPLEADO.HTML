@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Panel de Empleado - Reporte de Cámara</title>
+  <link rel="icon" type="image/png" href="img/icono.png" />
+  <link rel="stylesheet" href="css/EMPLEADO.CSS" />
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">
+      <img src="img/logo.png" alt="Logo Dal-Tile" class="logo-img">
+    </div>
+    <h1 class="titulo">Panel de Empleado</h1>
+    <nav class="nav-links">
+      <a href="SOPORTE_EMP.HTML">Soporte</a>
+      <a href="LOGIN.HTML">Cerrar sesión</a>
+    </nav>
+  </header>
+
+  <main class="form-container">
+    <h2>Reporte de Funcionamiento de Cámara</h2>
+
+    <form id="form-reporte" enctype="multipart/form-data" method="POST">
+      <input type="text" placeholder="Nombre del empleado" name="nombre" required />
+
+      <input type="email" placeholder="Correo del empleado" name="correo" required />
+
+      <select name="camara" required>
+        <option value="">Seleccionar Cámara</option>
+        <option value="camara1">Cámara 1</option>
+        <option value="camara2">Cámara 2</option>
+      </select>
+
+      <div class="campo-radio">
+        <label>Funcionamiento básico:</label>
+        <label><input type="radio" name="funcionamiento" value="bien" required /> Bien</label>
+        <label><input type="radio" name="funcionamiento" value="mal" required /> Mal</label>
+      </div>
+
+      <div class="campo-radio">
+        <label>Calidad de imagen:</label>
+        <label><input type="radio" name="imagen" value="bien" required /> Bien</label>
+        <label><input type="radio" name="imagen" value="mal" required /> Mal</label>
+      </div>
+
+      <div class="campo-radio">
+        <label>Movimiento:</label>
+        <label><input type="radio" name="movimiento" value="bien" required /> Bien</label>
+        <label><input type="radio" name="movimiento" value="mal" required /> Mal</label>
+      </div>
+
+      <textarea name="comentarios" placeholder="Comentarios adicionales..."></textarea>
+
+      <label class="archivo">
+        Adjuntar un archivo Word o PDF
+        <input type="file" name="archivo" accept=".doc,.docx,.pdf" required />
+      </label>
+
+      <div class="botones">
+        <button type="submit" class="enviar">Enviar Reporte</button>
+        <button type="button" class="eliminar">Eliminar Reporte</button>
+      </div>
+    </form>
+
+  </main>
+
+  <div id="mensaje-sistema" class="notificacion"></div>
+
+  <script src="js/EMPLEADO.js"></script>
+  <script src="js/empleado_funcion.js"></script>
+</body>
+</html>

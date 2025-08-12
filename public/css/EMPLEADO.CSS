@@ -1,0 +1,174 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+/* Navbar */
+.navbar {
+  background-color: #dfdfdf;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 30px;
+  flex-wrap: wrap;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.logo-img {
+  height: 50px;
+}
+
+.titulo {
+  font-size: 1.5rem;
+  flex: 1;
+  text-align: center;
+  color: #000000;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links a {
+  color: black;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: #911f1f;
+}
+
+/* Formulario */
+.form-container {
+  max-width: 600px;
+  background-color: white;
+  margin: 40px auto;
+  padding: 30px 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.form-container h2 {
+  margin-bottom: 20px;
+  text-align: center;
+  color: #000000;
+}
+
+form input[type="text"],
+form input[type="email"],
+form select,
+form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 18px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+form textarea {
+  resize: vertical;
+  height: 100px;
+}
+
+.campo-radio {
+  margin-bottom: 15px;
+}
+
+.campo-radio label {
+  margin-right: 15px;
+  display: inline-block;
+}
+
+.archivo {
+  display: block;
+  margin: 20px 0;
+  font-weight: 500;
+}
+
+.archivo input[type="file"] {
+  display: block;
+  margin-top: 8px;
+}
+
+/* Botones */
+.botones {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.enviar,
+.eliminar {
+  flex: 1;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.enviar {
+  background-color: #00348d;
+  color: white;
+}
+
+.enviar:hover {
+  background-color: #002565;
+  transform: scale(1.05);
+}
+
+.eliminar {
+  background-color: #ad3939;
+  color: white;
+}
+
+.eliminar:hover {
+  background-color: #911f1f;
+  transform: scale(1.05);
+}
+
+.notificacion {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #333;
+  color: white;
+  padding: 16px 24px;
+  border-radius: 10px;
+  font-size: 16px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  z-index: 9999;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.notificacion.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.notificacion.exito {
+  background-color: #1d00c1;
+}
+
+.notificacion.error {
+  background-color: #d32F2F;
+}
+

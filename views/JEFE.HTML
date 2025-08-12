@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Panel del Jefe - Reportes</title>
+  <link rel="icon" type="image/png" href="img/icono.png" />
+  <link rel="stylesheet" href="css/JEFE.CSS" />
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">
+      <img src="img/logo.png" alt="Logo Dal-Tile" class="logo-img"/>
+    </div>
+
+    <h1 class="titulo">Panel del Jefe de TI</h1>
+
+    <nav class="nav-links">
+      <a href="SOPORTE_JEFE.HTML">Soporte</a>
+      <a href="LOGIN.HTML">Cerrar sesión</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="filtros">
+      <select id="filtro-camara">
+        <option value="">Todas las cámaras</option>
+        <option value="camara1">Cámara 1</option>
+        <option value="camara2">Cámara 2</option>
+      </select>
+
+      <input type="date" id="filtro-fecha"/>
+
+      <select id="filtro-estado">
+        <option value="">Todos</option>
+        <option value="nuevo">Nuevos (menos de una semana)</option>
+        <option value="calificado">Calificados</option>
+        <option value="pendiente">No calificados (más de una semana)</option>
+      </select>
+
+      <button onclick="filtrarReportes()">Filtrar</button>
+       <button id="btn-recargar" title="Actualizar reportes">
+         <img src="img/icon_actualizar.png" alt="Actualizar" />
+</button>
+
+    </section>
+
+    <section id="reportes" class="lista-reportes">
+      <!-- Reportes cargan aquí dinámicamente -->
+    </section>
+  </main>
+
+  <div id="mensaje-jefe" class="notificacion"></div>
+
+  <script src="js/jefe.js"></script>
+</body>
+</html>
