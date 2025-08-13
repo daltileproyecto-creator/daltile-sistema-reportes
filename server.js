@@ -96,7 +96,7 @@ app.get('/logout', (req, res) => {
 
 // Ruta raíz
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'views', 'LOGIN.HTML'));
+  res.sendFile(path.join(__dirname, 'public', 'LOGIN.HTML'));
 });
 
 // Iniciar servidor
