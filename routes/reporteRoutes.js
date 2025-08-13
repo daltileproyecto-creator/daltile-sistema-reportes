@@ -57,8 +57,8 @@ router.post('/enviar', upload.single('archivo'), async (req, res) => {
         <p><strong>Cámara:</strong> ${req.body.camara}</p>
         <p>Revisa el panel para calificarlo en el siguiente enlace:</p>
         <p style="margin-top: 10px;">
-          👉 <a href="http://localhost:5000/LOGIN.HTML" style="color: #1a73e8; text-decoration: underline;">
-            http://localhost:5000/LOGIN.HTML
+          👉 <a href="https://daltile-sistema-reportes.onrender.com/" style="color: #1a73e8; text-decoration: underline;">
+            https://daltile-sistema-reportes.onrender.com/
           </a>
         </p>
       `
