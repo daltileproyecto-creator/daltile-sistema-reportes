@@ -27,21 +27,25 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage });
 
-// 🟢 GUARDAR NUEVO REPORTE
+// 🟢 GUARDAR NUEVO REPORTE (Con depuración)
 router.post('/enviar', upload.single('archivo'), async (req, res) => {
   try {
+    // 📌 Mostrar en consola lo que llega
+    console.log("📥 Datos recibidos en el body:", req.body);
+    console.log("📎 Archivo recibido:", req.file);
+
     if (!req.file) {
       return res.status(400).json({ error: 'No se recibió el archivo. Asegúrate de subir un PDF o Word.' });
     }
 
     const nuevoReporte = new Reporte({ 
-      nombreEmpleado: req.body.nombre,
-      correoEmpleado: req.body.correo,
-      camara: req.body.camara,
-      funcionamiento: req.body.funcionamiento,
-      imagen: req.body.imagen,
-      movimiento: req.body.movimiento,
-      comentarios: req.body.comentarios,
+      nombreEmpleado: req.body.nombre,        // Debe coincidir con el name="nombre" en el HTML
+      correoEmpleado: req.body.correo,        // name="correo"
+      camara: req.body.camara,                // name="camara"
+      funcionamiento: req.body.funcionamiento,// name="funcionamiento"
+      imagen: req.body.imagen,                // name="imagen"
+      movimiento: req.body.movimiento,        // name="movimiento"
+      comentarios: req.body.comentarios,      // name="comentarios"
       archivoNombre: req.file.filename,
       archivoRuta: req.file.path,
       fecha: new Date()
@@ -71,6 +75,7 @@ router.post('/enviar', upload.single('archivo'), async (req, res) => {
     res.status(500).json({ error: 'Error interno al guardar el reporte' });
   }
 });
+
 
 // 🔵 OBTENER TODOS LOS REPORTES
 router.get('/', async (req, res) => {
