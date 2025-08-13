@@ -1,6 +1,6 @@
 // Importaciones
 const express = require('express');
-const mongoose = require('mongoose');
+const mongoose = require('mongoose'); // ✅ Solo aquí
 const cors = require('cors');
 const path = require('path');
 const session = require('express-session');
@@ -22,13 +22,11 @@ app.use(session({
   saveUninitialized: false
 }));
 
-// Archivos estáticos (solo para login, CSS, JS, imágenes)
+// Archivos estáticos
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
-// Conexión a MongoDB
-const mongoose = require('mongoose');
-
+// Conexión a MongoDB Atlas
 mongoose.connect(process.env.MONGO_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true
@@ -51,7 +49,7 @@ function authMiddleware(rol) {
   };
 }
 
-// 🔒 Rutas protegidas usando carpeta views
+// Rutas protegidas
 app.get('/EMPLEADO.HTML', authMiddleware('empleado'), (req, res) => {
   res.sendFile(path.join(__dirname, 'views', 'EMPLEADO.HTML'));
 });
@@ -68,7 +66,7 @@ app.get('/SOPORTE_EMP.HTML', authMiddleware('empleado'), (req, res) => {
   res.sendFile(path.join(__dirname, 'views', 'SOPORTE_EMP.HTML'));
 });
 
-// 🔐 Ruta POST de login
+// Ruta POST de login
 app.post('/login', (req, res) => {
   const { codigo, password } = req.body;
 
@@ -89,7 +87,7 @@ app.post('/login', (req, res) => {
   res.send('<script>alert("❌ Código o contraseña incorrectos."); window.location.href="/LOGIN.HTML";</script>');
 });
 
-// 🔓 Logout
+// Logout
 app.get('/logout', (req, res) => {
   req.session.destroy(() => {
     res.redirect('/LOGIN.HTML');
