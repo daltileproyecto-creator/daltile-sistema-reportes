@@ -9,7 +9,7 @@ async function cargarReportes() {
   const estado = document.getElementById('filtro-estado')?.value || '';
 
   try {
-    const respuesta = await fetch('http://localhost:5000/api/reportes');
+    const respuesta = await fetch('http://localhost:${PORT}/api/reportes');
     const reportes = await respuesta.json();
 
     contenedor.innerHTML = '';
@@ -107,7 +107,7 @@ async function calificarReporte(id) {
   }
 
   try {
-    const respuesta = await fetch(`http://localhost:5000/api/reportes/calificar/${id}`, {
+    const respuesta = await fetch(`http://localhost:${PORT}/api/reportes/calificar/${id}`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -137,7 +137,7 @@ async function eliminarReporte(id) {
   if (!confirmar) return;
 
   try {
-    const respuesta = await fetch(`http://localhost:5000/api/reportes/${id}`, {
+    const respuesta = await fetch(`http://localhost:${PORT}/api/reportes/${id}`, {
       method: 'DELETE'
     });
 
