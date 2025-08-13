@@ -5,7 +5,7 @@ document.getElementById('form-reporte').addEventListener('submit', async functio
   const formData = new FormData(form);
 
   try {
-    const respuesta = await fetch('http://localhost:${PORT}/api/reportes/enviar', {
+    const respuesta = await fetch('https://daltile-sistema-reportes.onrender.com/api/reportes/enviar', {
       method: 'POST',
       body: formData
     });
