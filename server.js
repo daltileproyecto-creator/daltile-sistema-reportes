@@ -27,12 +27,14 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 // Conexión a MongoDB
+const mongoose = require('mongoose');
+
 mongoose.connect(process.env.MONGO_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
+    useNewUrlParser: true,
+    useUnifiedTopology: true
 })
-.then(() => console.log('✅ Conectado a MongoDB'))
-.catch((error) => console.error('❌ Error al conectar a MongoDB:', error));
+.then(() => console.log("✅ Conectado a MongoDB Atlas"))
+.catch(err => console.error("❌ Error al conectar a MongoDB:", err));
 
 // Rutas de reportes
 const reporteRoutes = require('./routes/reporteRoutes');
